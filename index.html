@@ -1,92 +1,75 @@
 <!DOCTYPE html>
-<!-- Define o tipo de documento como HTML5 -->
 <html lang="pt-BR">
 <head>
-  <!-- Define o conjunto de caracteres para suportar acentos -->
   <meta charset="UTF-8">
-
-  <!-- Título da página (aparece na aba do navegador) -->
   <title>Blocos juntos</title>
-
-  <!-- Importa os ícones do Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* Remove margens e espaçamentos padrão e ajusta o box model */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Estilo geral do corpo da página */
     body {
-      width: 100vw;           /* Ocupa toda a largura da tela */
-      height: 100vh;          /* Ocupa toda a altura da tela */
-      overflow: hidden;       /* Remove barras de rolagem */
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
       font-family: Arial, sans-serif;
     }
 
-    /* Container principal que engloba todos os blocos */
     .container {
       position: relative;
       width: 100%;
       height: 100%;
     }
 
-    /* Estilo base comum a todos os blocos */
     .bloco {
-      position: absolute;        /* Permite posicionamento livre */
-      border: 2px solid transparent;
-      background-color: #1e1e1e; /* Cor de fundo padrão */
-    }
+  position: absolute;
+  border: 2px solid transparent;
+  background-color: #1e1e1e; /* cor única */
+}
 
-    /* =========================
-       BLOCO 1 - IMAGEM
-       ========================= */
+
+    /* Bloco 1 - imagem */
     .b1 {
       width: 240px;
       height: 240px;
       top: 0;
       left: 0;
       background-image: url("753a7345-4463-4311-b7a8-84ed77c597e1.png");
-      background-size: cover;      /* Ajusta a imagem ao bloco */
-      background-position: center; /* Centraliza a imagem */
+      background-size: cover;
+      background-position: center;
     }
 
-    /* =========================
-       BLOCO 2 - SPOTIFY (iframe)
-       ========================= */
+    /* Bloco 2 - vídeo */
     .b2 {
-      width: calc(100% - 240px); /* Ocupa o resto da largura */
+      width: calc(100% - 240px);
       height: 240px;
       top: 0;
-      left: 240px;               /* Começa após o bloco 1 */
+      left: 240px;
       overflow: hidden;
     }
 
-    /* Caso fosse usado vídeo direto */
     .b2 video {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* =========================
-       BLOCO 3 - BOTÕES (MENU)
-       ========================= */
+    /* Bloco 3 - botões */
     .b3 {
       width: 240px;
-      height: calc(100% - 240px); /* Ocupa o restante da altura */
+      height: calc(100% - 240px);
       top: 240px;
       left: 0;
       padding: 10px;
       display: flex;
-      flex-direction: column; /* Botões em coluna */
-      gap: 10px;              /* Espaço entre botões */
+      flex-direction: column;
+      gap: 10px;
     }
 
-    /* Estilo dos botões */
     .b3 button {
       padding: 10px;
       cursor: pointer;
@@ -96,14 +79,11 @@
       font-size: 14px;
     }
 
-    /* Efeito ao passar o mouse */
     .b3 button:hover {
       background: #555;
     }
 
-    /* =========================
-       BLOCO 4 - IFRAME (CONTEÚDO)
-       ========================= */
+    /* Bloco 4 - páginas */
     .b4 {
       width: calc(100% - 240px);
       height: calc(100% - 240px);
@@ -111,70 +91,66 @@
       left: 240px;
     }
 
-    /* Iframe que carrega as páginas */
     .b4 iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+    
   </style>
 </head>
 
 <body>
-  <!-- Container principal -->
   <div class="container">
 
-    <!-- Bloco da imagem -->
     <div class="bloco b1"></div>
 
-    <!-- Bloco do Spotify -->
-    <div class="bloco b2">
-      <iframe
-        style="border-radius:12px"
-        src="https://open.spotify.com/embed/album/78iX7tMceN0FsnmabAtlOC?utm_source=generator"
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-    </div>
+   <div class="bloco b2">
+  <iframe
+    style="border-radius:12px"
+    src="https://open.spotify.com/embed/album/78iX7tMceN0FsnmabAtlOC?utm_source=generator"
+    width="100%"
+    height="100%"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
 
-    <!-- Bloco dos botões -->
-    <div class="bloco b3">
 
-      <!-- Cada botão chama a função abrir() -->
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Cristiano_Ronaldo')">
-        <i class="fa-solid fa-futbol"></i> Cristiano Ronaldo
-      </button>
+   <div class="bloco b3">
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Cristiano_Ronaldo')">
+    <i class="fa-solid fa-futbol"></i> Cristiano Ronaldo
+  </button>
 
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Lionel_Messi')">
-        <i class="fa-solid fa-star"></i> Lionel Messi
-      </button>
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Lionel_Messi')">
+    <i class="fa-solid fa-star"></i> Lionel Messi
+  </button>
 
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Neymar')">
-        <i class="fa-solid fa-fire"></i> Neymar
-      </button>
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Neymar')">
+    <i class="fa-solid fa-fire"></i> Neymar
+  </button>
 
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Pel%C3%A9')">
-        <i class="fa-solid fa-crown"></i> Pelé
-      </button>
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Pel%C3%A9')">
+    <i class="fa-solid fa-crown"></i> Pelé
+  </button>
 
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Diego_Maradona')">
-        <i class="fa-solid fa-hand-fist"></i> Maradona
-      </button>
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Diego_Maradona')">
+    <i class="fa-solid fa-hand-fist"></i> Maradona
+  </button>
 
-      <button onclick="abrir('https://es.wikipedia.org/wiki/Eden_Hazard')">
-        <i class="fa-solid fa-bolt"></i> Eden Hazard
-      </button>
+  <button onclick="abrir('https://es.wikipedia.org/wiki/Eden_Hazard')">
+    <i class="fa-solid fa-bolt"></i> Eden Hazard
+  </button>
 
-      <button onclick="abrir('suporte.html')">
-        <i class="fa-solid fa-headset"></i> Suporte
-      </button>
+  <button onclick="abrir('suporte.html')">
+  <i class="fa-solid fa-headset"></i> Suporte
+</button>
 
-    </div>
+  </button>
+</div>
 
-    <!-- Bloco onde as páginas são abertas -->
+
     <div class="bloco b4">
       <iframe id="frame"></iframe>
     </div>
@@ -182,8 +158,6 @@
   </div>
 
   <script>
-    // Função que altera o src do iframe
-    // Recebe a URL clicada no botão
     function abrir(url) {
       document.getElementById("frame").src = url;
     }
